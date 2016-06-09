@@ -6,63 +6,7 @@ Testing approaches for a Flask+SolR-based API
 ```
 brew install solr
 solr create -c grail  # create core named grail
-curl http://localhost:8983/solr/grail/schema -X POST -H 'Content-type:application/json' --data-binary '{\n    
-	"add-field" : {\n        
-		"name":"track_id",\n        
-		"type":"text_general",\n        
-		"stored":true\n    },\n    
-	"add-field" : {\n        
-		"name":"track_name",\n        
-		"type":"text_general",\n        
-		"stored":true\n    },\n    
-	"add-field" : {\n        
-		"name":"artist_name",\n        
-		"type":"text_general",\n        
-		"stored":true\n    },\n    
-	"add-field" : {\n        
-		"name":"echonest",\n        
-		"type":"text_general",\n        
-		"stored":true\n    },\n   
-	"add-field" : {\n        
-		"name":"spotify",\n        
-		"type":"text_general",\n        
-		"stored":true\n    },\n   
-	 "add-field" : {\n        
-	 	"name":"rdio",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"musicbrainz",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"spotify_album",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"spotify_artist",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"musixmatch",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"musixmatch_artist",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"musicbrainz_artist",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"rdio_artist",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    },\n    
-	 "add-field" : {\n        
-	 	"name":"msd_id",\n        
-	 	"type":"text_general",\n        
-	 	"stored":true\n    }           \n}'  # create schema
+mv schema.xml ./solr/grail/conf # move the schema into the conf folder in the running solr server
 post -c grail ./grail_10_rows.csv  # load data in CSV format in core named grail
 ```
 Test Solr install and data loading
