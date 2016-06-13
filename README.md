@@ -24,7 +24,7 @@ Resources:
 
 ```
 pip install flask
-python grail_api_app.py
+python api.py
 curl -i -X POST -H "Content-Type: application/json" -d '{"username":"joe","password":"changeme"}' http://127.0.0.1:5000/api/users
 ```
 
