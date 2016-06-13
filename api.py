@@ -154,6 +154,10 @@ def grail_api():
         search = solr.search(q='spotify_artist:' + request.args['spotify_artist'])
         q = search.raw_response
         return jsonify(**q)
+    elif 'isrc' in request.args:
+        search = solr.search(q='isrc:' + request.args['isrc'])
+        q = search.raw_response
+        return jsonify(**q)
     else:
         return 'Enter your query'
 
