@@ -30,7 +30,8 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"username":"joe","passw
 
 Then, typing in the terminal: 
 ```
-curl -X PATCH http://127.0.0.1:5000/grail?artist_name=Mansun
+curl http://127.0.0.1:5000/api?artist_name=Mansun
+curl http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
 
-Should return a JSON file with the entries belonging to the artist Mansun.
+Should return a JSON file with the entries belonging to the artist Mansun, and the artist with the corresponding ISRC 
