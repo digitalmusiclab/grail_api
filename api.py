@@ -145,17 +145,14 @@ def grail_api():
     elif 'musicbrainz_artist' in request.args:
         search = solr.search(q='musicbrainz_artist:' + request.args['musicbrainz_artist'])
         q = search.raw_response
-        # http://flask.pocoo.org/docs/0.10/api/#flask.json.jsonify
         return jsonify(**q)
     elif 'musixmatch_artist' in request.args:
         search = solr.search(q='musixmatch_artist:' + request.args['musixmatch_artist'])
         q = search.raw_response
-        # http://flask.pocoo.org/docs/0.10/api/#flask.json.jsonify
         return jsonify(**q)
     elif 'spotify_artist' in request.args:
         search = solr.search(q='spotify_artist:' + request.args['spotify_artist'])
         q = search.raw_response
-        # http://flask.pocoo.org/docs/0.10/api/#flask.json.jsonify
         return jsonify(**q)
     else:
         return 'Enter your query'
