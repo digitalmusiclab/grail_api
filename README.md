@@ -25,13 +25,17 @@ Resources:
 ```
 pip install flask
 python api.py
+```
+
+Users are add via POSTmessages
+```
 curl -i -X POST -H "Content-Type: application/json" -d '{"username":"joe","password":"changeme"}' http://127.0.0.1:5000/api/users
 ```
 
 Then, typing in the terminal: 
 ```
-curl http://127.0.0.1:5000/api?artist_name=Mansun
-curl http://127.0.0.1:5000/api?isrc=GBAYE0000395
+curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?artist_name=Mansun
+curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
 
 Should return a JSON file with the entries belonging to the artist Mansun, and the artist with the corresponding ISRC 
