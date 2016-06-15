@@ -32,10 +32,22 @@ Users are add via POSTmessages
 curl -i -X POST -H "Content-Type: application/json" -d '{"username":"joe","password":"changeme"}' http://127.0.0.1:5000/api/users
 ```
 
+If token-based authentication is wanted
+
+```
+curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api/token
+```
+
+Returns a JSON file with the token, which expires in 10 minutes
+
 Then, typing in the terminal: 
 ```
 curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?artist_name=Mansun
 curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
+or 
+```
+curl -u eyJhbGciOiJIUzI1NiIsImV4cCI6MTQ2NTk5OTMzMiwiaWF0IjoxNDY1OTk4NzMyfQ.eyJpZCI6Mn0.Np5aovCNHOYO3i0r36KTgGWj-k_z8TUOpebwWuyT_cw:unused -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
+```
 
-Should return a JSON file with the entries belonging to the artist Mansun, and the artist with the corresponding ISRC 
+Will return a JSON file with the entries belonging to the artist Mansun, and the artist with the corresponding ISRC. In the previous call example, the token is passed as a username, and there is no need for password (that is why 'unused' appears in that field)
