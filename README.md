@@ -11,7 +11,7 @@ post -c grail ./grail_10_rows.csv  # load data in CSV format in core named grail
 ```
 Test Solr install and data loading
 ```
-curl http://localhost:8983/solr/grail/select\?indent\=on\&q\=\*:\*\&wt\=json
+curl http://localhost:8983/solr/grail/select?q=*:*&wt=json
 ```
 Should return a JSON file with the number of entries in the loaded file
 
