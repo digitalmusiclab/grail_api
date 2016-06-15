@@ -27,7 +27,7 @@ pip install flask
 python api.py
 ```
 
-Users are add via POSTmessages
+Users are added via POST messages
 ```
 curl -i -X POST -H "Content-Type: application/json" -d '{"username":"joe","password":"changeme"}' http://127.0.0.1:5000/api/users
 ```
