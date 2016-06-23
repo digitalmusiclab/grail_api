@@ -51,3 +51,41 @@ curl -u token:unused -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
 
 Will return a JSON file with the entries belonging to the artist Mansun, and the artist with the corresponding ISRC. In the previous call example, the token returned to the GET call before is passed as a username, and there is no need for password (that is why 'unused' appears in that field)
+
+
+
+
+## For creating a DataImport handler:
+
+### Edit your solrconfig.xml to add the request handler
+```
+<requestHandler name="/dataimport" class="org.apache.solr.handler.dataimport.DataImportHandler">
+<lst name="defaults">
+  <str name="config">db-data-config.xml</str>
+</lst>
+</requestHandler>
+```
+
+### Make sure the file ```solr-dataimporthandler-.*\.jar``` is within the solrconfig.xml file
+
+```
+<lib dir="${solr.install.dir}/libexec/dist/" regex="solr-dataimporthandler-.*\.jar" />
+```
+
+### Create a data-config.xml file as follows and save it to the conf dir
+```
+<dataConfig>
+  <dataSource type="JdbcDataSource" 
+              driver="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost/dbname" 
+              user="user-name" 
+              password="password"/>
+  <document>
+    <entity name="id" 
+            query="select id,name,desc from mytable">
+    </entity>
+  </document>
+</dataConfig>
+```
+
+### Make sure the files 
