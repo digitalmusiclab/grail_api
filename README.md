@@ -9,7 +9,12 @@ solr create -c grail  # create core named grail
 mv schema.xml ./solr/grail/conf # move the schema into the conf folder in the running solr server
 post -c grail ./grail_10_rows.csv  # load data in CSV format in core named grail
 ```
-Make sure Solr is running, and test it by making a query
+Make sure Solr is running, in my case 
+```
+/usr/local/Cellar/solr/6.0.0/bin/solr start
+```
+
+and test it by making a query
 ```
 curl http://localhost:8983/solr/grail/select?q=*:*&wt=json
 ```
