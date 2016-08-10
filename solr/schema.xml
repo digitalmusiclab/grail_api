@@ -229,7 +229,7 @@
 <field name="createdat_track" type="text_general" index="True" stored="true" />    
 <field name="echonest_track" type="text_general" index="True" stored="true" />     
 <field name="g_id" type="text_general" index="True" stored="true" />         
-<field name="isrc_track" type="text_general" index="True" stored="true" />         
+<field name="isrc" type="text_general" index="True" stored="true" />         
 <field name="lyricfind_us_track" type="text_general" index="True" stored="true" /> 
 <field name="musicbrainz_track" type="text_general" index="True" stored="true" />  
 <field name="musixmatch_ww_track" type="text_general" index="True" stored="true" />
