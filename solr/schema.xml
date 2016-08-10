@@ -206,20 +206,36 @@
     to fit the data precisely 
     -->
 
-    <field name="track_id" type="text_general" indexed="true" stored="true" />
-    <field name="track_name" type="text_general" indexed="true" stored="true" />
-    <field name="artist_name" type="text_general" indexed="true" stored="true" />
-    <field name="echonest" type="text_general" indexed="true" stored="true" />
-    <field name="spotify" type="text_general" indexed="true" stored="true" />
-    <field name="rdio" type="text_general" indexed="true" stored="true" />
-    <field name="musicbrainz" type="text_general" indexed="true" stored="true" />
-    <field name="spotify_album" type="text_general" indexed="true" stored="true" />
-    <field name="spotify_artist" type="text_general" indexed="true" stored="true" />
-    <field name="musixmatch" type="text_general" indexed="true" stored="true" />
-    <field name="musixmatch_artist" type="text_general" indexed="true" stored="true" />
-    <field name="musicbrainz_artist" type="text_general" indexed="true" stored="true" />
-    <field name="rdio_artist" type="text_general" indexed="true" stored="true" />
-    <field name="msd_id" type="text_general" indexed="true" stored="true" />
+<field name="createdat_artist" type="text_general" index="True" stored="true" />     
+<field name="digital7_au_artist" type="text_general" index="True" stored="true" />   
+<field name="digital7_uk_artist" type="text_general" index="True" stored="true" />   
+<field name="digital7_us_artist" type="text_general" index="True" stored="true" />   
+<field name="echonest_artist" type="text_general" index="True" stored="true" />      
+<field name="facebook_artist" type="text_general" index="True" stored="true" />      
+<field name="fma_artist" type="text_general" index="True" stored="true" />           
+<field name="g_a_id_artist" type="text_general" index="True" stored="true" />        
+<field name="jambase_artist" type="text_general" index="True" stored="true" />       
+<field name="lyricfind_us_artist" type="text_general" index="True" stored="true" />
+<field name="musicbrainz_artist" type="text_general" index="True" stored="true" />   
+<field name="musixmatch_ww_artist" type="text_general" index="True" stored="true" /> 
+<field name="name_artist" type="text_general" index="True" stored="true" />          
+<field name="openaura_artist" type="text_general" index="True" stored="true" />      
+<field name="seatgeek_artist" type="text_general" index="True" stored="true" />      
+<field name="seatwave_artist" type="text_general" index="True" stored="true" />      
+<field name="spotify_artist" type="text_general" index="True" stored="true" />       
+<field name="tumblr_artist" type="text_general" index="True" stored="true" />        
+<field name="twitter_artist" type="text_general" index="True" stored="true" />       
+<field name="updatedat_artist" type="text_general" index="True" stored="true" />
+<field name="createdat_track" type="text_general" index="True" stored="true" />    
+<field name="echonest_track" type="text_general" index="True" stored="true" />     
+<field name="g_id" type="text_general" index="True" stored="true" />         
+<field name="isrc_track" type="text_general" index="True" stored="true" />         
+<field name="lyricfind_us_track" type="text_general" index="True" stored="true" /> 
+<field name="musicbrainz_track" type="text_general" index="True" stored="true" />  
+<field name="musixmatch_ww_track" type="text_general" index="True" stored="true" />
+<field name="name_track" type="text_general" index="True" stored="true" />         
+<field name="spotify_track" type="text_general" index="True" stored="true" />      
+<field name="updatedat_track" type="text_general" index="True" stored="true" /> 
     
 
 
