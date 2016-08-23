@@ -122,7 +122,7 @@ def get_auth_token():
 #     return jsonify({'data': 'Hello, %s!' % g.user.username})
 
 
-solr = pysolr.Solr('http://132.206.14.236:8983/solr/grail', timeout=10)
+solr = pysolr.Solr('http://127.0.0.1:8983/solr/grail', timeout=10)
 
 
 @app.route('/')
