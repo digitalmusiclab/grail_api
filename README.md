@@ -47,11 +47,12 @@ Returns a JSON file with the token, which expires in 10 minutes
 
 Then, typing in the terminal: 
 ```
-curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?artist_name=Mansun
+curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?artist_name=Bush
 curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
 or 
 ```
+curl -u joe:changeme -i -X GET http://127.0.0.1:5000/api?artist_name=Bush
 curl -u token:unused -i -X GET http://127.0.0.1:5000/api?isrc=GBAYE0000395
 ```
 
