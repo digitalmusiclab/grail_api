@@ -33,9 +33,13 @@ Resources:
 - RESTful API: http://blog.luisrei.com/articles/flaskrest.html
 - RESTful Auth with Flask: http://blog.miguelgrinberg.com/post/restful-authentication-with-flask
 
+Install Flask and required libraries
 ```
 pip install flask
 pip install Flask-SQLAlchemy  # install SQLAlchemy support to the application
+pip install flask-httpauth 
+pip install passlib
+pip install pysolr
 ```
 
 Run the Flask webserver
