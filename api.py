@@ -134,26 +134,90 @@ def api_root():
 @app.route('/api')
 @auth.login_required
 def grail_api():
-    """http://127.0.0.1:5000/grail?artist_name=Mansun."""
-    if 'artist_name' in request.args:
-        search = solr.search(q='artist_name:' + request.args['artist_name'])
-        q = search.raw_response
-        # http://flask.pocoo.org/docs/0.10/api/#flask.json.jsonify
-        return jsonify(**q)
+    """http://127.0.0.1:5000/api?artist_name=Bush"""
+    # if 'artist_name' in request.args:
+    #     search = solr.search(q='artist_name:' + request.args['artist_name'])
+    #     q = search.raw_response
+    #     # http://flask.pocoo.org/docs/0.10/api/#flask.json.jsonify
+    #     return jsonify(**q)
         # Using HTML template
         # return render_template('hello.html', name=q)
-    # elif 'musicbrainz_artist' in request.args:
-    #     search = solr.search(q='musicbrainz_artist:' + request.args['musicbrainz_artist'])
-    #     q = search.raw_response
-    #     return jsonify(**q)
-    # elif 'musixmatch_artist' in request.args:
-    #     search = solr.search(q='musixmatch_artist:' + request.args['musixmatch_artist'])
-    #     q = search.raw_response
-    #     return jsonify(**q)
-    # elif 'spotify_artist' in request.args:
-    #     search = solr.search(q='spotify_artist:' + request.args['spotify_artist'])
-    #     q = search.raw_response
-    #     return jsonify(**q)
+    if 'digital7_au_artist' in request.args:
+        search = solr.search(q='digital7_au_artist:' + request.args['digital7_au_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'digital7_uk_artist' in request.args:
+        search = solr.search(q='digital7_uk_artist:' + request.args['digital7_uk_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'digital7_us_artist' in request.args:
+        search = solr.search(q='digital7_us_artist:' + request.args['digital7_us_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'echonest_artist' in request.args:
+        search = solr.search(q='echonest_artist:' + request.args['echonest_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'facebook_artist' in request.args:
+        search = solr.search(q='facebook_artist:' + request.args['facebook_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'fma_artist' in request.args:
+        search = solr.search(q='fma_artist:' + request.args['fma_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'grail_artist_id' in request.args:
+        search = solr.search(q='grail_artist_id:' + request.args['grail_artist_id'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'jambase_artist' in request.args:
+        search = solr.search(q='jambase_artist:' + request.args['jambase_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'lyricfind_us_artist' in request.args:
+        search = solr.search(q='lyricfind_us_artist:' + request.args['lyricfind_us_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'musicbrainz_artist' in request.args:
+        search = solr.search(q='musicbrainz_artist:' + request.args['musicbrainz_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'openaura_artist' in request.args:
+        search = solr.search(q='openaura_artist:' + request.args['openaura_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'seatgeek_artist' in request.args:
+        search = solr.search(q='seatgeek_artist:' + request.args['seatgeek_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'seatwave_artist' in request.args:
+        search = solr.search(q='seatwave_artist:' + request.args['seatwave_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'spotify_artist' in request.args:
+        search = solr.search(q='spotify_artist:' + request.args['spotify_artist'])
+        q = search.raw_response
+        return jsonify(**q)
+    elif 'tumblr_artist' in request.args:
+        search = solr.search(q='tumblr_artist:' + request.args['tumblr_artist'])
+        q = search.raw_response
+        return jsonify(**q)  
+    elif 'twitter_artist' in request.args:
+        search = solr.search(q='twitter_artist:' + request.args['twitter_artist'])
+        q = search.raw_response
+        return jsonify(**q)                                        
+
+
+
+
+
+
+
+
+
+
+
+
     # elif 'isrc' in request.args:
     #     search = solr.search(q='isrc:' + request.args['isrc'])
     #     q = search.raw_response
