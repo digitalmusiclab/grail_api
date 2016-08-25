@@ -5,14 +5,20 @@ Testing approaches for a Flask+SolR-based API
 
 ```
 brew install solr
-solr create -c grail  # create core named grail
-mv schema.xml ./solr/grail/conf # move the schema into the conf folder in the running solr server
-post -c grail ./grail_10_rows.csv  # load data in CSV format in core named grail
 ```
+
 Make sure Solr is running, in my case 
 ```
-/usr/local/Cellar/solr/6.0.0/bin/solr start
+/usr/local/Cellar/solr/6.1.0/bin/solr start
 ```
+
+Create core, update the default schema, and load data
+```
+solr create -c grail  # create core named grail
+mv schema.xml /usr/local/Cellar/solr/6.1.0/server/solr/grail/conf # move the schema into the conf folder in the running solr server
+post -c grail data/grail_demo.csv  # load data in CSV format in core named grail
+```
+
 
 and test it by making a query
 ```
@@ -29,6 +35,11 @@ Resources:
 
 ```
 pip install flask
+pip install Flask-SQLAlchemy  # install SQLAlchemy support to the application
+```
+
+Run the Flask webserver
+```
 python api.py
 ```
 
