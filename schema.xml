@@ -221,7 +221,6 @@
 <field name="openaura_artist" type="text_general" indexed="true" stored="true" />
 <field name="seatgeek_artist" type="text_general" indexed="true" stored="true" />
 <field name="seatwave_artist" type="text_general" indexed="true" stored="true" />
-<field name="spotify_artist" type="text_general" indexed="true" stored="true" />
 <field name="tumblr_artist" type="text_general" indexed="true" stored="true" />
 <field name="twitter_artist" type="text_general" indexed="true" stored="true" />
 <field name="createdat_track" type="text_general" indexed="true" stored="true" />
@@ -234,6 +233,9 @@
 <field name="track_name" type="text_general" indexed="true" stored="true" />
 <field name="spotify_track" type="text_general" indexed="true" stored="true" />
 <field name="updatedat_track" type="text_general" indexed="true" stored="true" />
+<field name="musicbrainz_criteria" type="text_general" indexed="true" stored="true" />
+<field name="spotify_criteria" type="text_general" indexed="true" stored="true" />
+
 
     
 
