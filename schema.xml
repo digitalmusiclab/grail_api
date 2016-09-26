@@ -215,7 +215,7 @@
 <field name="grail_artist_id" type="text_general" indexed="true" stored="true" />
 <field name="jambase_artist" type="text_general" indexed="true" stored="true" />
 <field name="lyricfind_us_artist" type="text_general" indexed="true" stored="true" />
-<field name="musixmatch_ww_artist" type="text_general" indexed="true" stored="true" />
+<!-- <field name="musixmatch_ww_artist" type="text_general" indexed="true" stored="true" /> -->
 <field name="musicbrainz_artist" type="text_general" indexed="true" stored="true"/>
 <field name="artist_name" type="text_general" indexed="true" stored="true" />
 <field name="openaura_artist" type="text_general" indexed="true" stored="true" />
@@ -233,22 +233,8 @@
 <field name="track_name" type="text_general" indexed="true" stored="true" />
 <field name="spotify_track" type="text_general" indexed="true" stored="true" />
 <field name="updatedat_track" type="text_general" indexed="true" stored="true" />
-<field name="musicbrainz_criteria" type="text_general" indexed="true" stored="true" />
-<field name="spotify_criteria" type="text_general" indexed="true" stored="true" />
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
+<field name="musicbrainz_track_criteria" type="text_general" indexed="true" stored="true" />
+<!-- <field name="spotify_criteria" type="text_general" indexed="true" stored="true" /> -->
 
     <!-- The StrField type is not analyzed, but indexed/stored verbatim.
        It supports doc values but in that case the field needs to be
