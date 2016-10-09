@@ -1,0 +1,6 @@
+2016-10-09 18:45:44,041 - grail - ERROR - No Matching Route: (u'/api', <NotFound '404: Not Found'>)
+2016-10-09 18:47:13,715 - grail - ERROR - No Matching Route: (u'/api', <NotFound '404: Not Found'>)
+2016-10-09 19:07:20,245 - grail - ERROR - No Matching Route: (u'/api', <NotFound '404: Not Found'>)
+2016-10-09 19:07:25,839 - grail - INFO - Displaying all users.
+2016-10-09 19:13:15,584 - grail - ERROR - No Matching Route: (u'/api', <NotFound '404: Not Found'>)
+2016-10-09 19:13:18,329 - grail - INFO - Displaying all users.
