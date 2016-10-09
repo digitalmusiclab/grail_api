@@ -49,9 +49,9 @@ class ProductionConfig(BaseConfig):
 
 
 config = {
-    "development": "grail.config.DevelopmentConfig",
-    "testing": "grail.config.TestingConfig",
-    "production": "grail.config.ProductionConfig"
+    "development": "grail.utilities.config.DevelopmentConfig",
+    "testing": "grail.utilities.config.TestingConfig",
+    "production": "grail.utilities.config.ProductionConfig"
 }
 
 
