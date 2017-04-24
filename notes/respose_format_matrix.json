@@ -1,0 +1,59 @@
+/*
+    "given a spotify track, we want to find music brainz and lastfm releases"
+    1. query for grail_release_id(s) (can return multiple matching release rows) from track table with spotify track id
+        => matching grail_release_id(s)
+    2. query for musicbrainz or lastfm with grail_release_id(s) from release table where musicbrainz or lastfm is not null
+    3. Return results
+        => can be multiple rows from the release table that match the query
+        => ie. (musicbrainz ids, and lastfm ids) / per row(s)
+*/
+{
+    "request": {
+        "entity": "track",
+        "id": "XXXXXX12341",
+        "namespace": "spotify",
+        "include_entity": "release",
+        "include_namespace": [ "musicbrainz", "lastfm" ],
+        "query": { "limit": 50, "offset": 0 }
+    },
+    "response": {
+        "results": {
+            "count": 3,
+            "offset": 0,
+            "remaining": 10
+        },
+        "data": {
+            "musicbrainz": [
+                {
+                    "id": "123ABC",
+                    "confidence": 0.90,
+                    "critera": {
+                        "spotify": { "string_match": 1, "ordering": 0, "cardinality": 0.5 },
+                        "musicbrainz": { "string_match": 1, "ordering": 0, "cardinality": 0.5 }
+                    },
+                    "updated_at": "2017-02-02T12:12:03:03Z"
+                },
+                {
+                    "id": "456XYZ",
+                    "confidence": 0.65,
+                    "critera": { 
+                        "spotify": { "string_match": 1, "ordering": 0, "cardinality": 0.5 },
+                        "musicbrainz": { "string_match": 1, "ordering": 0, "cardinality": 0.5 },
+                        "lastfm": { "string_match": 1, "ordering": 0, "cardinality": 0.5 }
+                    },
+                    "updated_at": "2017-02-02T12:12:03:03Z"
+                }
+            ],
+            "lastfm": [
+                {
+                    "id": "789KGB",
+                    "confidence": 0.8,
+                    "critera": { 
+                        "spotify": { "string_match": 1, "ordering": 0, "cardinality": 0.5 }
+                    },
+                    "updated_at": "2017-02-02T12:12:03:03Z"
+                }
+            ]
+        }
+    }
+}
