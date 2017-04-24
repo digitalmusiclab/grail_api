@@ -1,0 +1,77 @@
+ENTITY = artist | track | release
+NAMESPACE = musicbrainz | spotify | mixradio | grail_ENTITY_id
+
+
+table.grail_ENTITY
+----------------------
+grail_entity_id = int
+namespace_entity_id = VARCHAR
+namespace_entity_critera = JSON // mixradio comparision
+namespace_entity_cross = JSON // validation between other namespaces
+*** track table also has isrc, grail_release_id, grail_artist_id
+
+
+
+
+
+MySQL [baronemda]> desc grail_track;
++----------------------------+--------------+------+-----+---------+-------+
+| Field                      | Type         | Null | Key | Default | Extra |
++----------------------------+--------------+------+-----+---------+-------+
+| grail_track_id             | int(11)      | NO   | PRI | 0       |       |
+| grail_artist_id            | int(11)      | YES  |     | NULL    |       |
+| grail_release_id           | int(11)      | YES  |     | NULL    |       |
+| isrc                       | varchar(12)  | YES  | MUL | NULL    |       |
+| spotify_track              | varchar(22)  | YES  | MUL | NULL    |       |
+| spotify_track_name         | varchar(255) | YES  |     | NULL    |       |
+| createdat_track            | datetime     | YES  |     | NULL    |       |
+| updatedat_track            | datetime     | YES  |     | NULL    |       |
+| musicbrainz_track          | varchar(36)  | YES  |     | NULL    |       |
+| musicbrainz_track_criteria | int(11)      | YES  |     | NULL    |       |
+| echonest_track             | varchar(18)  | YES  |     | NULL    |       |
+| lyricfind_us_track         | varchar(32)  | YES  |     | NULL    |       |
+| musixmatch_track           | int(11)      | YES  |     | NULL    |       |
+| mixradio_track             | int(11)      | NO   | MUL | NULL    |       |
+| mixradio_name              | varchar(255) | YES  |     | NULL    |       |
+| track_position             | int(11)      | YES  |     | NULL    |       |
+| msd_track                  | varchar(18)  | YES  |     | NULL    |       |
++----------------------------+--------------+------+-----+---------+-------+
+17 rows in set (0.00 sec)
+
+MySQL [baronemda]> desc grail_artist;
++----------------------+---------------------+------+-----+---------+-------+
+| Field                | Type                | Null | Key | Default | Extra |
++----------------------+---------------------+------+-----+---------+-------+
+| grail_artist_id      | int(11)             | NO   | PRI | 0       |       |
+| spotify_artist       | varchar(22)         | YES  | MUL | NULL    |       |
+| spotify_artist_name  | varchar(255)        | YES  |     | NULL    |       |
+| facebook_artist      | bigint(20) unsigned | YES  |     | NULL    |       |
+| digital7_us_artist   | int(11)             | YES  |     | NULL    |       |
+| digital7_uk_artist   | int(11)             | YES  |     | NULL    |       |
+| digital7_au_artist   | int(11)             | YES  |     | NULL    |       |
+| openaura_artist      | varchar(24)         | YES  |     | NULL    |       |
+| musixmatch_ww_artist | int(11)             | YES  |     | NULL    |       |
+| jambase_artist       | int(11)             | YES  |     | NULL    |       |
+| fma_artist           | int(11)             | YES  |     | NULL    |       |
+| seatgeek_artist      | int(11)             | YES  |     | NULL    |       |
+| seatwave_artist      | int(11)             | YES  |     | NULL    |       |
+| lyricfind_us_artist  | varchar(32)         | YES  |     | NULL    |       |
+| rdio_artist          | varchar(255)        | YES  |     | NULL    |       |
+| echonest_artist      | varchar(18)         | YES  |     | NULL    |       |
+| twitter_artist       | varchar(15)         | YES  |     | NULL    |       |
+| tumblr_artist        | varchar(255)        | YES  |     | NULL    |       |
+| musicbrainz_artist   | varchar(255)        | YES  |     | NULL    |       |
+| mixradio_artist      | int(11)             | YES  | MUL | NULL    |       |
++----------------------+---------------------+------+-----+---------+-------+
+20 rows in set (0.01 sec)
+
+MySQL [baronemda]> desc grail_release;
++---------------------+-------------+------+-----+---------+----------------+
+| Field               | Type        | Null | Key | Default | Extra          |
++---------------------+-------------+------+-----+---------+----------------+
+| grail_release_id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| spotify_release     | varchar(22) | YES  | MUL | NULL    |                |
+| musicbrainz_release | varchar(36) | YES  | MUL | NULL    |                |
+| mixradio_release    | int(11)     | YES  | MUL | NULL    |                |
++---------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
