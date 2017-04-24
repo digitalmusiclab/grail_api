@@ -8,6 +8,7 @@ pages:
 - Criteria Description: criteria.md
 - About: about.md
 
+docs_dir: ./documentation/docs
 repo_url: https://github.com/digitalmusiclab/grail_api.git
 site_author: Michael Barone
 theme: readthedocs

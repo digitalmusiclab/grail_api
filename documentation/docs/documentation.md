@@ -1,4 +1,3 @@
-
 # Registration
 * New users must register with an email address to receive an API key. 
 * API access requires an API key as part of the request. Keys are issued [here](register.md) during the free registration process. Registration requires accepting terms and services, providing an email address, represented institution/organization, and a brief description of intended uses of the API.
