@@ -37,7 +37,7 @@ module.exports = {
         database: process.env.DB_NAME,
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
-        forceSync: process.env.DB_SYNC,
+        forceSync: (process.env.DB_SYNC == 'true'),
         options: {
             logging: false,
             language: "en",
