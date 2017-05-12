@@ -1,29 +1,16 @@
-#Linkage Process
-## Nokia Music to Spotify
-* 27 million tracks linked to track-level catalog information, including international standard recording codes (ISRCs), were made available to the Digital Music Lab as part of a data-sharing agreement with Nokia Music. The unique mapping of ISRCs to Nokia Music is used as a starting point for GRAIL. 
+![Screenshot](img/workflow.png)
+Figure illustrates how crawlers access targeted APIs (gray diamonds), what validation steps are used to access APIs (black lines), and what metadata is ingested into GRAIL (gray lines). Solid lines represent active GRAIL crawls, and dotted lines represent crawls currently in development.
 
-* Spotify track IDs were collected from the Spotify API using 
-```python
-x='https://api.spotify.com/v1/tracks/?isrc:ISRC'
-'''
+# Validation Steps
+* <b>Step 1.</b> ISRC seed-data from Nokia DB accesses metadata from the Spotify API. Artist, release, and track consistency calculations are conducted using string-matching, positioning, and cardinatlity.
+* <b>Step 2.</b> Spotify tracks IDs were used to link to Rosetta Stone artist IDs. Due to Spotify's purchase of The Echo Nest in 2014 and subsequent discontinuation, consistency validation between this two services was not possible (or necessary).
+* <b>Step 3.</b> Nokia Music artist, release, and track string names are used to query the MusicBrainz API.  Artist, release, and track consistency calculation using $string-matching, positioning, and cardinatlity
+* <b>Step 4.</b> Nokia Music artist, release and track string names, and linked MusicBrainz IDs, from ingestion step C are being used to conduct artist, release, and track consistency calculations using string-matching, positioning, and cardinatlity.
+* <b>Step 5.</b> In due course, Nokia Music artist, release, track string names will be used to access GraceNote's metadata via text search. As above, artist, release, and track consistency calculations are conducted using string-matching, positioning, and cardinatlity.
 
-* 17,713,247 Spotify tracks were linked to ISRCs using this method
-
-## Spotify to The Echo Nest
-* Prior to The Echo Nest's deprecation, the 17.7 million linked Spotify track IDs were used to query artist-level identifiers available from the Rosetta Stone project.
-* Spotify tracks were used to query The Echo Nest API using the method:
-```html
-http://developer.echonest.com/api/v4/song/search?api_key=FILDTEOIK2HBORODV&track_id=spotify:SPOTIFY_TRACK&format=json
-'''
-
-* 11,205,282 of the 17.7 million tracks returned artist, and track ID information from the query.  
-* 12 artist-level IDs were linked into GRAIL. Available for IDs for artists vary, for a summary of available IDs see [documentation](documentation.md)
-
-## MixRadio to MusicBrainz
-* Spotify and Nokia Music album metadata was used to query MusicBrainz [search server](https://musicbrainz.org/doc/Search_Server).
-* In order to create track-level MusicBrainz linkages, MusicBrainz release metadata was compared to Nokia Music release metadata.
-* Tracks must satisfy 1 of 4 levels of reducing matching criteria in order to be linked into GRAIL. Criteria 1 represents the strongest match, 4 represents the weakest. For a detailed description of the MixRadio to MusicBrainz matching procedure, see [criteria](criteria.md)
-* Methods that restrict responses to only include tracks which meet specific criteria are [available](documentation)
-
-## MixRadio to Million Song Dataset
-* To be included.
+# Ingestion Steps
+* <b>Step A.</b> Spotify artist, release, and track IDs are ingested into GRAIL. Crawlers check if an ID has changed since it last checked. New IDs, including CV values and timestamps, are inserted as additional rows. IDs which have not changed are updated with modified CV values and timestamps.
+* <b>Step B.</b> The Echo Nest track and artist IDs were ingested into GRAIL, in addition to any artist IDs collected from the Rosetta Stone project.
+* <b>Step C.</b> MusicBrainz artist, release, and track IDs are ingested into GRAIL based on API text searches.
+* <b>Step D.</b> Artist, release, and track IDs CVs are calculated for Last.FM metadata, and are ingested to GRAIL using linked MusicBrainz IDs and text searches. MusixMatch and 7digital API crawlers are in development using a similar process.
+* <b>Step E.</b> Artist, release, and track ID CVs will be ingested for new APIs, and any shared metadata that can improve accuracy.
