@@ -1,18 +1,21 @@
-#Criteria Description
-## Nokia Music to Spotify
-To be included: The Spotify API is queried at the track level using ISRCs. Track names are compared between Nokia Music and Spotify. Strings are compared using the SequenceMatcher function of Python's difflib package.  String comparisons's are scored as a ratio betwen 0.0-1.0. Exact string matches are scored as 1.0. A score of 0.5 means that 50% of the characters are shared between Nokia Music and MixRadio track titles.
+# Criteria Requirements
+![Screenshot](img/crit_table.png)
 
-## Nokia Music to MusicBrainz
-* Tracks are matched at the album level.  All criteria require that the Nokia Music release and the MusicBrainz release maintain cardinality (agreement regarding total tracks). Criteria 1 requires Nokia Music and MusicBrainz to be in maintain exact string matches and track ordering. Requirements loosen as criteria fail; criteria 4 requires that all tracks must be present across both releases, ignoring track ordering, and passes the fuzzy string matching procedure described above. 
+# String-matching
+Levenshtein distance (LD) is calculated for tracks, releases, and artists. LD compares character similarity across two strings and provides a value ranging from 0 to 1. LD is a common procedure in string-matching processes, and has been used previously to link music metadata into MusicBrainz. Track, release, and artist LDs are calculated on an pairwise basis, and expressed as string-matching confidence values.
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f0a48ecfc9852c042382fdc33c19e11a16948e85">
 
-Criterion | Cardinality | Ordering | String Match
----- | ---- | ---- | ----
-1 | 1 | 1 | 1 
----- | ---- | ---- | ----
-2 | 1 | 0 | 1
----- | ---- | ---- | ----
-3 | 1 | 1 | 0
----- | ---- | ---- | ----
-4 | 1 | 0 | 0
----- | ---- | ---- | ----
-* Matching criteria table for MusicBrainz linkage process. Cardinality and ordering with a value of 1 represents True. String Match values of 1 represent exact (case insenstive) matches, 0 represents fuzzy string matching.
+# Cardinality
+Cardinality confidence values are calculated by dividing the minimum cardinality by the maximum. For example, Table \ref{tab:release} compares two releases, X and Y, with different cardinalities (5 versus 4). Column 5 is therefore: 4/5 = 0.8. This value is attributed to each track within both releases. In a similar manner, artist-level cardinality is calculated by comparing the number of distinct tracks attributed to each artist across resources. Cardinality criterion is not used with respect to track matching.
+![Screenshot](img/cardinality_eq.png)
+
+# Positioning
+When position metadata is available, positioning confidence values are calculated for tracks and releases. Similar to cardinality, positioning is calculated for the track with the maximum LD comparison; the linked attribute from the API with the maximum position is used as the denominator against the attribute with the minimum position. In the table above, Track 2 in X is to Track 4 in Y, the strings exactly match. The positioning for Track 2 in X is therefore 0.6, calculated by dividing the minimum track position (2) by the maximum (4).
+![Screenshot](img/position_eq.png)
+
+# Overall
+Overall confidence values are calculated for artist, release and track by taking a weighted average from all available confidence value calculations. As shown in the table above Artist overll confidence values are calculated by taking the weighted average of string-matching and cardinality; track overall confidence values are calculated by taking the weighted average of string-matching and positioning. For a release overal confidence, a weighted average of all values is possible.
+
+# Criteria Example
+![Screenshot](img/release_ex.png)
+Example of release matching process using 2 APIs X and Y (e.g. Spotify and MusicBrainz). Release and artist names are first compared prior to assigning track consistency values. When releases agree on artist and release strings, track information regarding the releases is compared. In this example, the 3 columns on the left disagree in the following ways: X has a cardinality of 5, whereas Y's cardinality is 4; and track orders 2 and 4 within X are reversed within Y. The 3 columns on the right show CVs calculated per track for each criterion described above. 
