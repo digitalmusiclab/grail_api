@@ -20,7 +20,9 @@ routes.push({
         validation: {
             content: {
                 email: { isRequired: true, isEmail: true },
-                password: { isRequired: true, isAlphanumeric: true, isLength: 6 }
+                password: { isRequired: true, isAlphanumeric: true, isLength: 6 },
+                tos_agree: { isRequired: true, isBoolean: true },
+                description: { isRequired: true }
             }
         }
     },
