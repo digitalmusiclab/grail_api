@@ -126,14 +126,20 @@ IMPORTANT - PLEASE READ CAREFULLY:  THIS IS A LEGALLY BINDING AGREEMENT. PLEASE 
 * <b>22.0	GOVERNING LAW</b>
 > <b>22.1</b> 	This Agreement will be interpreted in accordance with the laws of the Province of Ontario, Canada. Any suit, action, or proceeding arising out of or relating to this Agreement must be brought in Hamilton, Ontario and you submit to the exclusive jurisdiction of the Courts of Hamilton, Ontario. Use of GRAIL API or GRAIL Data is prohibited in any jurisdiction which does not give effect to the terms of this Agreement. 
 
+
 # Confirmation
-<p>Email: <input type='email' name='email'/></p>
 
-<p>Password: <input type='password' name='password'/></p>
+<form action='/session/register' method='post'>  
+    
+    <p>Email: <input type='email' name='email'/></p>
+    
+    <p>Password: <input type='password' name='password'/></p>
+    
+    <p>Application Description: <input type='text' name='description'/></p>
 
-<p>Application Description: <input type='password' name='password'/></p>
-
-<p> <input type="checkbox" name="agree" value="agree"> I have read and understood the above Agreement and agree to be bound by the terms and conditions of this Agreement. </p>
-<p>  <input type="submit" value="Submit"> </p>
+    <p><input type="checkbox" name="tos_agree" value='true'>I have read and understood the above Agreement and agree to be bound by the terms and conditions of this Agreement.</p>
+    
+    <p><input type='submit' value='Submit'/></p>
+</form>
 
 
