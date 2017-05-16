@@ -22,7 +22,7 @@ module.exports = {
         port: process.env.SERVER_PORT,
         url: process.env.SERVER_URL,
         throttle_options: {
-            rate: 2,
+            rate: 5,
             burst: 1,
             ip: false,
             username: true
